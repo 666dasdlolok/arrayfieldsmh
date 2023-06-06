@@ -1972,6 +1972,37 @@ function RayfieldLibrary:CreateWindow(Settings)
 					Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 				end
 
+				local function AddOptions(Options,Selected)
+					if typeof(Options) == 'table' then
+						for _, Option in ipairs(Options) do
+							AddOption(Option,Selected)
+						end
+					else
+						AddOption(Options,Selected)
+					end
+					if Settings.ConfigurationSaving then
+						if Settings.ConfigurationSaving.Enabled and DropdownSettings.Flag then
+							RayfieldLibrary.Flags[DropdownSettings.Flag] = DropdownSettings
+						end
+					end
+				end
+				function DropdownSettings:Add(Items,Selected)
+					AddOptions(Items,Selected)
+				end
+				
+				AddOptions(DropdownSettings.Options,DropdownSettings.CurrentOption)
+
+				function DropdownSettings:Refresh(NewOptions,Selecteds)
+					DropdownSettings.Items = {}
+					DropdownSettings.Items.Selected = {}
+					for _, option in ipairs(Dropdown.List:GetChildren()) do
+						if option.ClassName == "Frame" and option ~= SearchBar and option ~= Dropdown.List.PlaceHolder then
+							option:Destroy()
+						end
+					end
+					AddOptions(NewOptions,Selecteds)
+				end
+
 
 				local Success, Response = pcall(function()
 					DropdownSettings.Callback(NewOption)
