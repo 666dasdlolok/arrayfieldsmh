@@ -222,7 +222,7 @@
         local HoverTime = 0.3
         local Notifications = Rayfield.Notifications
 
-        local SelectedTheme = RayfieldLibrary.Theme.Default
+        local SelectedTheme = RayfieldLibrary.Theme.Blue
 
         function ChangeTheme(ThemeName)
             SelectedTheme = RayfieldLibrary.Theme[ThemeName]
