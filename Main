@@ -21,9 +21,9 @@
 local RayfieldLibrary = {
     Flags = {},
     Theme = {
-Blue = {
-    TextFont = "Gotham",  -- Default will use the various font faces used across Rayfield
-    TextColor = Color3.fromRGB(255, 255, 255), -- i need to make all text 240, 240, 240 and base gray on transparency not color to do this
+Default = {
+    TextFont = "Default",  -- Default will use the various font faces used across Rayfield
+    TextColor = Color3.fromRGB(240, 240, 240), -- i need to make all text 240, 240, 240 and base gray on transparency not color to do this
  
     Background = Color3.fromRGB(25, 25, 25),
     Topbar = Color3.fromRGB(7, 11, 62),
