@@ -2151,10 +2151,8 @@ Default = {
 
                         DropdownOption.Interact.ZIndex = 50
                         DropdownOption.Interact.MouseButton1Click:Connect(function()
-							for g,h in pairs(DropdownSettings.CurrentOption) do
 
-							end
-                            if (DropdownSettings.Multi and Option ~= h) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) then
+                            if (DropdownSettings.Multi and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) then
                                 if DropdownSettings.Multi then
                                     table.insert(DropdownSettings.CurrentOption, Option)
                                     Dropdown.Selected.Text = table.concat(DropdownSettings.CurrentOption, ", ")
